@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Dolls - Catálogo MotoGP Edition</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Aplicamos la fuente base */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Pequeña animación para el botón de CTA */
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para el modal */
+        #productModal.hidden {
+            display: none;
+        }
+
+        /* Estilos para las miniaturas del carrusel */
+        .thumbnail-image.active {
+            border-color: #DC2626; /* red-600 */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header -->
+    <header class="bg-black shadow-lg sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div>
+                <a href="#" class="text-2xl font-black uppercase text-white">
+                    Lucky <span class="text-red-600">Dolls</span>
+                </a>
+                <span class="block text-xs font-light text-red-500 tracking-widest">MOTOGP EDITION</span>
+            </div>
+            <div>
+                <a href="#catalogo" class="bg-red-600 text-white font-bold py-2 px-5 rounded-full text-sm uppercase transition-all duration-300 cta-button">
+                    Catálogo
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative text-center text-white overflow-hidden">
+        <!-- Fondo oscuro con textura sutil o gradiente -->
+        <div class="bg-gray-900 bg-opacity-80 relative z-10 py-24 md:py-32 px-6">
+            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4">
+                Las Figuras de los <span class="text-red-600">Campeones</span>
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-300 mb-8">
+                La colección definitiva para fans. Presentamos las Lucky Dolls: figuras cabezonas de poliresina que simulan a tus pilotos favoritos.
+            </p>
+            <a href="#pedido" class="bg-red-600 text-white font-bold py-3 px-10 rounded-full text-lg uppercase transition-all duration-300 cta-button shadow-xl">
+                Iniciar Pedido
+            </a>
+        </div>
+        <!-- Simulación de fondo (se podría añadir un video o imagen) -->
+        <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+        <!-- Se podría añadir una imagen de fondo de un circuito desenfocado aquí -->
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-black py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <!-- Icono SVG simple para velocidad -->
+                    <svg class="w-12 h-12 mx-auto mb-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <h3 class="text-xl font-bold uppercase mb-2">Diseño de Pista</h3>
+                    <p class="text-gray-400">Inspirados en la aerodinámica y los materiales de alta competición.</p>
+                </div>
+                <div class="p-6">
+                    <!-- Icono SVG simple para coleccionable -->
+                    <svg class="w-12 h-12 mx-auto mb-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v1h-14v-1zM19 8v11a2 2 0 01-2 2H7a2 2 0 01-2-2V8h14zM10 12h4"></path></svg>
+                    <h3 class="text-xl font-bold uppercase mb-2">Edición Limitada</h3>
+                    <p class="text-gray-400">Cada figura es una pieza de coleccionista única. No te quedes sin la tuya.</p>
+                </div>
+                <div class="p-6">
+                    <!-- Icono SVG para coleccionismo -->
+                    <svg class="w-12 h-12 mx-auto mb-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                    <h3 class="text-xl font-bold uppercase mb-2">Pieza de Colección</h3>
+                    <p class="text-gray-400">La figura perfecta para tu estantería, escritorio o garaje. Muestra tu pasión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section (Catálogo) -->
+    <section id="catalogo" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-black text-gray-900 text-center uppercase mb-12">
+                Catálogo Oficial <span class="text-red-600">2025</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Producto 1 -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden group border-b-4 border-transparent hover:border-red-600 transition-all duration-300 cursor-pointer product-card" data-id="apex">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x600/333/FFF?text=The+Apex" alt="Lucky Doll - The Apex" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 text-gray-900">
+                        <h3 class="text-2xl font-bold mb-2">The Apex</h3>
+                        <p class="text-gray-600 text-sm mb-4">El clásico. Tamaño mediano, perfecto para el retrovisor de tu coche o tu escritorio. Acabado en resina brillante.</p>
+                        <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-3 py-1 rounded-full">Edición Clásica</span>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden group border-b-4 border-transparent hover:border-red-600 transition-all duration-300 cursor-pointer product-card" data-id="kerb">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x600/555/FFF?text=The+Kerb" alt="Lucky Doll - The Kerb" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 text-gray-900">
+                        <h3 class="text-2xl font-bold mb-2">The Kerb</h3>
+                        <p class="text-gray-600 text-sm mb-4">Pequeño y agresivo. Diseñado como llavero de alta resistencia con anilla de titanio. Llévalo siempre contigo.</p>
+                        <span class="inline-block bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full">Llavero</span>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden group border-b-4 border-transparent hover:border-red-600 transition-all duration-300 cursor-pointer product-card" data-id="chicane">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x600/777/FFF?text=The+Chicane" alt="Lucky Doll - The Chicane" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 text-gray-900">
+                        <h3 class="text-2xl font-bold mb-2">The Chicane</h3>
+                        <p class="text-gray-600 text-sm mb-4">Doble problema. Un set de dos figuras (roja y negra) que se unen magnéticamente. Ideal para parejas de moteros.</p>
+                        <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-3 py-1 rounded-full">Set x2</span>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden group border-b-4 border-transparent hover:border-red-600 transition-all duration-300 cursor-pointer product-card" data-id="grid">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x600/999/FFF?text=The+Grid" alt="Lucky Doll - The Grid" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 text-gray-900">
+                        <h3 class="text-2xl font-bold mb-2">The Grid</h3>
+                        <p class="text-gray-600 text-sm mb-4">El set de parrilla. Incluye 3 mini-figuras con base adhesiva 3M para colocar en el salpicadero de tu coche o furgoneta.</p>
+                        <span class="inline-block bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full">Set x3 Adhesivo</span>
+                    </div>
+                </div>
+
+                <!-- Producto 5 -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden group border-b-4 border-transparent hover:border-red-600 transition-all duration-300 cursor-pointer product-card" data-id="paddock">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x600/222/FFF?text=The+Paddock" alt="Lucky Doll - The Paddock" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 text-gray-900">
+                        <h3 class="text-2xl font-bold mb-2">The Paddock</h3>
+                        <p class="text-gray-600 text-sm mb-4">Edición de lujo. Figura grande (20cm) con base de fibra de carbono real. Pieza de coleccionista numerada.</p>
+                        <span class="inline-block bg-yellow-200 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Ed. Coleccionista</span>
+                    </div>
+                </div>
+
+                <!-- Producto 6 -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden group border-b-4 border-transparent hover:border-red-600 transition-all duration-300 cursor-pointer product-card" data-id="holeshot">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x600/444/FFF?text=The+Holeshot" alt="Lucky Doll - The Holeshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 text-gray-900">
+                        <h3 class="text-2xl font-bold mb-2">The Holeshot</h3>
+                        <p class="text-gray-600 text-sm mb-4">Figura de acción articulada. Múltiples puntos de articulación para posturas de carrera. Incluye mini-casco intercambiable.</p>
+                        <span class="inline-block bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full">Articulado</span>
+                    </div>
+                </div>
+
+                <!-- Producto 7 -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden group border-b-4 border-transparent hover:border-red-600 transition-all duration-300 cursor-pointer product-card" data-id="highside">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x600/666/FFF?text=The+Highside" alt="Lucky Doll - The Highside" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 text-gray-900">
+                        <h3 class="text-2xl font-bold mb-2">The Highside</h3>
+                        <p class="text-gray-600 text-sm mb-4">El "Crash-Tested". Fabricado en goma flexible de alta densidad, diseñado para colgar del mono o la moto. Resiste todo.</p>
+                        <span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-3 py-1 rounded-full">Ultra-Resistente</span>
+                    </div>
+                </div>
+
+                <!-- Producto 8 -->
+                <div class="bg-white rounded-lg shadow-2xl overflow-hidden group border-b-4 border-transparent hover:border-red-600 transition-all duration-300 cursor-pointer product-card" data-id="champion">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x600/888/FFF?text=The+Champion" alt="Lucky Doll - The Champion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 text-gray-900">
+                        <h3 class="text-2xl font-bold mb-2">The Champion</h3>
+                        <p class="text-gray-600 text-sm mb-4">Réplica 1:1 de la figura personal del campeón. Acabado dorado, con firma grabada. Incluye caja de presentación.</p>
+                        <span class="inline-block bg-yellow-200 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Réplica Firmada</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Pedido) -->
+    <section id="pedido" class="bg-red-600 py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black text-white uppercase mb-4">¿Listo para tu Figura?</h2>
+            <p class="text-lg text-red-100 max-w-2xl mx-auto mb-8">
+                Esto es un catálogo, no una tienda. Para tramitar tu pedido, por favor, contacta con nuestro equipo comercial.
+                Indícanos los modelos y cantidades que te interesan.
+            </p>
+            <a 
+                href="mailto:ventas@luckydolls-motogp.com?subject=Consulta Pedido Catálogo MotoGP&body=Hola, estoy interesado en los siguientes productos del catálogo de Lucky Dolls:%0D%0A%0D%0A- [Insertar modelo/s y cantidad/es]%0D%0A%0D%0APor favor, contacten conmigo para más detalles.%0D%0A%0D%0AGracias."
+                class="bg-gray-900 text-white font-bold py-4 px-12 rounded-full text-lg uppercase transition-all duration-300 cta-button shadow-xl"
+            >
+                Iniciar Pedido por Email
+            </a>
+            <p class="text-red-200 text-sm mt-6">
+                O llámanos al <span class="font-bold">+34 900 123 456</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-10">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p class="text-lg font-bold uppercase">
+                Lucky <span class="text-red-600">Dolls</span> <span class="font-light">Racing</span>
+            </p>
+            <p class="text-sm mt-2">
+                © 2025 Lucky Dolls - Racing Division. Todos los derechos reservados.
+            </p>
+            <p class="text-xs text-gray-600 mt-4">
+                Este sitio es un catálogo de demostración. Lucky Dolls es una marca ficticia.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden">
+    <!-- Contenido del Modal -->
+    <div class="bg-white text-gray-900 rounded-lg shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col md:flex-row relative">
+        
+        <!-- Botón de Cierre -->
+            <button id="modalClose" class="absolute top-2 right-2 z-10 text-white md:text-gray-600 bg-black/30 md:bg-transparent rounded-full w-8 h-8 flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <!-- Carrusel -->
+            <div class="w-full md:w-1/2 relative bg-gray-200">
+                <!-- Imagen Principal -->
+                <img id="modalMainImage" src="https://placehold.co/600x600/333/FFF?text=Apex+Vista+1" alt="Product Image" class="w-full h-64 md:h-full md:max-h-[90vh] object-contain">
+                
+                <!-- Controles -->
+                <button id="modalPrev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="modalNext" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                
+                <!-- Miniaturas -->
+                <div id="modalThumbnails" class="absolute bottom-2 left-0 right-0 p-2 flex justify-center gap-2 overflow-x-auto">
+                    <!-- JS poblará esto -->
+                </div>
+            </div>
+            
+            <!-- Info del Producto -->
+            <div class="w-full md:w-1/2 p-6 overflow-y-auto max-h-[40vh] md:max-h-[90vh]">
+                <h3 id="modalName" class="text-3xl font-bold mb-3 text-gray-900">The Apex</h3>
+                <p id="modalDesc" class="text-gray-600 text-base mb-6">El clásico. Tamaño mediano, perfecto para el retrovisor de tu coche o tu escritorio. Acabado en resina brillante.</p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="bg-gray-100 p-3 rounded-lg">
+                        <span class="block text-xs font-bold uppercase text-gray-500">Precio / Ud.</span>
+                        <span id="modalPrice" class="text-2xl font-bold text-red-600">24,99€</span>
+                    </div>
+                    <div class="bg-gray-100 p-3 rounded-lg">
+                        <span class="block text-xs font-bold uppercase text-gray-500">Pedido Mínimo</span>
+                        <span id="modalMinUnits" class="text-2xl font-bold text-gray-800">50</span>
+                        <span class="text-gray-500 text-sm">unidades</span>
+                    </div>
+                </div>
+                
+                <p class="text-sm text-gray-500 mb-6">
+                    Precios sin IVA. El diseño y los colores pueden personalizarse para pedidos de gran volumen.
+                </p>
+
+                <a id="modalCta" href="#pedido" class="w-full text-center bg-red-600 text-white font-bold py-3 px-10 rounded-full text-lg uppercase transition-all duration-300 cta-button shadow-xl inline-block">
+                    Tramitar Pedido
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- 1. DATOS DE LOS PRODUCTOS ---
+            // Aquí centralizamos toda la información.
+            const productData = {
+                'apex': {
+                    name: 'The Apex',
+                    description: 'El clásico. Tamaño mediano (15cm), perfecto para tu escritorio. Acabado en resina brillante de alta calidad.',
+                    price: '24,99€',
+                    minUnits: 50,
+                    images: [
+                        'https://placehold.co/600x600/333/FFF?text=Apex+Vista+1',
+                        'https://placehold.co/600x600/333/FFF?text=Apex+Vista+2',
+                        'https://placehold.co/600x600/333/FFF?text=Apex+Vista+3'
+                    ]
+                },
+                'kerb': {
+                    name: 'The Kerb',
+                    description: 'Pequeño y agresivo (8cm). Diseñado como llavero de alta resistencia con anilla de titanio. Llévalo siempre contigo.',
+                    price: '14,99€',
+                    minUnits: 100,
+                    images: [
+                        'https://placehold.co/600x600/555/FFF?text=Kerb+Vista+1',
+                        'https://placehold.co/600x600/555/FFF?text=Kerb+Vista+2'
+                    ]
+                },
+                'chicane': {
+                    name: 'The Chicane',
+                    description: 'Doble problema. Un set de dos figuras (roja y negra) que se unen magnéticamente. Ideal para parejas de moteros.',
+                    price: '44,99€',
+                    minUnits: 30,
+                    images: [
+                        'https://placehold.co/600x600/777/FFF?text=Chicane+Set',
+                        'https://placehold.co/600x600/777/FFF?text=Chicane+Detalle'
+                    ]
+                },
+                'grid': {
+                    name: 'The Grid',
+                    description: 'El set de parrilla. Incluye 3 mini-figuras (8cm) con base adhesiva 3M para colocar en el salpicadero de tu coche o furgoneta.',
+                    price: '39,99€',
+                    minUnits: 40,
+                    images: [
+                        'https://placehold.co/600x600/999/FFF?text=The+Grid+Set',
+                        'https://placehold.co/600x600/999/FFF?text=The+Grid+Uso'
+                    ]
+                },
+                'paddock': {
+                    name: 'The Paddock',
+                    description: 'Edición de lujo. Figura grande (20cm) con base de fibra de carbono real. Pieza de coleccionista numerada.',
+                    price: '79,99€',
+                    minUnits: 10,
+                    images: [
+                        'https://placehold.co/600x600/222/FFF?text=Paddock+Frontal',
+                        'https://placehold.co/600x600/222/FFF?text=Paddock+Base',
+                        'https://placehold.co/600x600/222/FFF?text=Paddock+Caja'
+                    ]
+                },
+                'holeshot': {
+                    name: 'The Holeshot',
+                    description: 'Figura de acción articulada (18cm). Múltiples puntos de articulación para posturas de carrera. Incluye mini-casco intercambiable.',
+                    price: '34,99€',
+                    minUnits: 50,
+                    images: [
+                        'https://placehold.co/600x600/444/FFF?text=Holeshot+Pose',
+                        'https://placehold.co/600x600/444/FFF?text=Holeshot+Casco'
+                    ]
+                },
+                'highside': {
+                    name: 'The Highside',
+                    description: 'El "Crash-Tested" (10cm). Fabricado en goma flexible de alta densidad, diseñado para colgar del mono o la moto. Resiste todo.',
+                    price: '19,99€',
+                    minUnits: 80,
+                    images: [
+                        'https://placehold.co/600x600/666/FFF?text=Highside+Goma',
+                        'https://placehold.co/600x600/666/FFF?text=Highside+Colgado'
+                    ]
+                },
+                'champion': {
+                    name: 'The Champion',
+                    description: 'Réplica 1:1 de la figura personal del campeón (15cm). Acabado dorado, con firma grabada. Incluye caja de presentación de lujo.',
+                    price: '99,99€',
+                    minUnits: 10,
+                    images: [
+                        'https://placehold.co/600x600/888/FFF?text=Champion+Gold',
+                        'https://placehold.co/600x600/888/FFF?text=Champion+Firma',
+                        'https://placehold.co/600x600/888/FFF?text=Champion+Caja'
+                    ]
+                }
+            };
+
+            // --- 2. SELECTORES DOM ---
+            const modal = document.getElementById('productModal');
+            const modalClose = document.getElementById('modalClose');
+            const modalCta = document.getElementById('modalCta');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            const modalMainImage = document.getElementById('modalMainImage');
+            const modalThumbnails = document.getElementById('modalThumbnails');
+            const modalPrev = document.getElementById('modalPrev');
+            const modalNext = document.getElementById('modalNext');
+            
+            const modalName = document.getElementById('modalName');
+            const modalDesc = document.getElementById('modalDesc');
+            const modalPrice = document.getElementById('modalPrice');
+            const modalMinUnits = document.getElementById('modalMinUnits');
+
+            // --- 3. ESTADO DEL CARRUSEL ---
+            let currentProductId = null;
+            let currentImageIndex = 0;
+
+            // --- 4. FUNCIONES ---
+
+            /** Abre el modal con los datos de un producto específico */
+            function openModal(productId) {
+                const product = productData[productId];
+                if (!product) {
+                    console.error('Producto no encontrado:', productId);
+                    return;
+                }
+
+                currentProductId = productId;
+                currentImageIndex = 0;
+
+                // Poblar datos de texto
+                modalName.innerText = product.name;
+                modalDesc.innerText = product.description;
+                modalPrice.innerText = product.price;
+                modalMinUnits.innerText = product.minUnits;
+
+                // Actualizar carrusel
+                updateCarousel();
+
+                // Mostrar modal
+                modal.classList.remove('hidden');
+            }
+
+            /** Cierra el modal */
+            function closeModal() {
+                modal.classList.add('hidden');
+            }
+
+            /** Actualiza la imagen principal y las miniaturas */
+            function updateCarousel() {
+                const product = productData[currentProductId];
+                const images = product.images;
+                
+                // Manejar índice (loop)
+                if (currentImageIndex < 0) {
+                    currentImageIndex = images.length - 1;
+                } else if (currentImageIndex >= images.length) {
+                    currentImageIndex = 0;
+                }
+
+                // Cambiar imagen principal
+                modalMainImage.src = images[currentImageIndex];
+
+                // Poblar y actualizar miniaturas
+                modalThumbnails.innerHTML = '';
+                images.forEach((imgSrc, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.className = 'thumbnail-image w-12 h-12 object-cover rounded cursor-pointer border-4 border-transparent hover:border-red-300';
+                    
+                    if (index === currentImageIndex) {
+                        thumb.classList.add('active');
+                    }
+
+                    // Añadir evento de clic a la miniatura
+                        thumb.addEventListener('click', () => {
+                            currentImageIndex = index;
+                            updateCarousel();
+                        });
+                        
+                        modalThumbnails.appendChild(thumb);
+                });
+            }
+
+            // --- 5. EVENT LISTENERS ---
+
+            // Abrir modal al hacer clic en una tarjeta
+            productCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const productId = card.dataset.id;
+                    openModal(productId);
+                });
+            });
+
+            // Cerrar modal
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                // Cerrar solo si se hace clic en el fondo (el propio modal)
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            // Cerrar modal al hacer clic en el CTA (para que el usuario vea que vuelve al catálogo)
+            modalCta.addEventListener('click', closeModal);
+
+
+            // Controles del carrusel
+            modalPrev.addEventListener('click', () => {
+                currentImageIndex--;
+                updateCarousel();
+            });
+
+            modalNext.addEventListener('click', () => {
+                currentImageIndex++;
+                updateCarousel();
+            });
+
+        });
+    </script>
+
+</body>
+</html>
